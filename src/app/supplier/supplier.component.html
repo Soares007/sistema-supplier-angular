@@ -1,5 +1,64 @@
-<div class="container text-center">
-  <div class="display-6">
-    Cadastro de Fornecedor
+<div class="row">
+  <div class="col-8 m-auto">
+    <form [formGroup]="formGroupSupplier">
+      <div class="mb-3">
+        <div class="display-6 text-center">
+          Cadastro de Fornecedores
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nome:</label>
+        <input type="text" formControlName="name" class="form-control" id="name" placeholder="Seu nome">
+      </div>
+      <div class="mb-3">
+        <label for="phone_number" class="form-label">Phone Number:</label>
+        <input type="number" formControlName="phone_number" class="form-control" id="phone_number"
+          placeholder="Seu numero de telefone">
+      </div>
+      <div class="mb-3">
+        <label for="cnpj" class="form-label">CNPJ:</label>
+        <input type="number" formControlName="cnpj" class="form-control" id="cnpj" placeholder="Sua CNPJ">
+      </div>
+      <div class="mb-3">
+        <label for="categoria" class="form-label">Categoria:</label>
+        <input type="text" formControlName="categoria" class="form-control" id="categoria"
+          placeholder="Sua categoria de produto">
+      </div>
+      <div class="mb-3">
+        <label for="produto" class="form-label">Produto:</label>
+        <input type="text" formControlName="produto" class="form-control" id="produto" placeholder="Seu produto">
+      </div>
+      <div class="mb-3 d-flex justify-content-end gap-2">
+        <button class="btn btn-success" (click)="save()">Salvar</button>
+        <button class="btn btn-danger" (click)="limparDados()">Limpar</button>
+      </div>
+    </form>
   </div>
 </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">CNPJ</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Produto</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dados of supplier">
+      <th scope="row">{{dados.id}}</th>
+      <td>{{dados.name}}</td>
+      <td>{{dados.phone_number}}</td>
+      <td>{{dados.cnpj}}</td>
+      <td>{{dados.categoria}}</td>
+      <td>{{dados.produto}}</td>
+      <td>
+        <button class="btn btn-primary me-2" (click)="edit(dados)">Editar</button>
+        <button class="btn btn-danger" (click)="delete(dados)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

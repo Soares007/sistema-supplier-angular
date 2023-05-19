@@ -1,0 +1,54 @@
+{
+  "clientes": [
+    {
+      "id": 1,
+      "name": "José Marcio ",
+      "email": "jose.marcio@gmail.com",
+      "phone_number": 11987045637,
+      "adress": "Rua do Aluminio...",
+      "cpf": 45678920398
+    },
+    {
+      "id": 2,
+      "name": "Carlos Eduardo",
+      "email": "carlos.eduardo@gmail.com",
+      "phone_number": 11967435098,
+      "adress": "Rua do Ledino...",
+      "cpf": 40975874652
+    },
+    {
+      "id": 3,
+      "name": "Guilherme Rodrigues",
+      "email": "guilherme.rodrigues@gmail.com",
+      "phone_number": 11907564389,
+      "adress": "Rua Brasil...",
+      "cpf": 48920597863
+    }
+  ],
+  "suppliers": [
+    {
+      "id": 1,
+      "name": "João",
+      "phone_number": 11985760593,
+      "cnpj": 498607689567,
+      "categoria": "Calçados",
+      "produto": "Chuteira Nike"
+    },
+    {
+      "id": 2,
+      "name": "Daniel",
+      "phone_number": 11978906543,
+      "cnpj": 498566768907,
+      "categoria": "Eletrodomésticos",
+      "produto": "Geladeira"
+    },
+    {
+      "id": 3,
+      "name": "Fabio",
+      "phone_number": 119987606543,
+      "cnpj": 496895678607,
+      "categoria": "Eletrônicos",
+      "produto": "Celular"
+    }
+  ]
+}

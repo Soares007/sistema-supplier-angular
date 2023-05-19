@@ -1,5 +1,62 @@
-<div class="container text-center">
-  <div class="display-6">
-    Cadastro Cliente
+<div class="row">
+  <div class="col-8 m-auto">
+    <form [formGroup]="formGroupClient">
+      <div class="mb-3">
+        <div class="display-6 text-center">
+          Cadastro de Clientes
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nome:</label>
+        <input type="text" formControlName="name" class="form-control" id="name" placeholder="Seu nome">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" formControlName="email" class="form-control" id="email" placeholder="Seu email">
+      </div>
+      <div class="mb-3">
+        <label for="phone_number" class="form-label">Phone Number:</label>
+        <input type="number" formControlName="phone_number" class="form-control" id="phone_number" placeholder="Seu numero de telefone">
+      </div>
+      <div class="mb-3">
+        <label for="adress" class="form-label">Adress:</label>
+        <input type="text" formControlName="adress" class="form-control" id="adress" placeholder="Seu endereço">
+      </div>
+      <div class="mb-3">
+        <label for="cpf" class="form-label">CPF:</label>
+        <input type="number" formControlName="cpf" class="form-control" id="cpf" placeholder="Seu CPF">
+      </div>
+      <div class="mb-3 d-flex justify-content-end gap-2">
+        <button class="btn btn-success" (click)="save()">Salvar</button>
+        <button class="btn btn-danger" (click)="limparDados()">Limpar</button>
+      </div>
+    </form>
   </div>
 </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Adress</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <th scope="row">{{client.id}}</th>
+      <td>{{client.name}}</td>
+      <td>{{client.email}}</td>
+      <td>{{client.phone_number}}</td>
+      <td>{{client.adress}}</td>
+      <td>{{client.cpf}}</td>
+      <td>
+        <button class="btn btn-primary me-2" (click)="edit(client)">Editar</button>
+        <button class="btn btn-danger" (click)="delete(client)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
