@@ -35,6 +35,15 @@
       "adress": "Rua do Aluminio...",
       "cpf": 432542432432432,
       "payment": "Dinheiro"
+    },
+    {
+      "id": 5,
+      "name": "Jose Marcio",
+      "email": "jose.marcio@gmail.com",
+      "phone_number": 234123132132112,
+      "adress": "Rua do Aluminio...",
+      "cpf": 124342324342423,
+      "payment": "Pix"
     }
   ],
   "suppliers": [

@@ -59,6 +59,10 @@
           <input type="radio" formControlName="payment" class="form-check-input" id="payment3" value="Dinheiro">
           <label class="form-check-label" for="payment3">Dinheiro</label>
         </div>
+        <div class="form-check">
+          <input type="radio" formControlName="payment" class="form-check-input" id="payment4" value="Pix">
+          <label class="form-check-label" for="payment4">Pix</label>
+        </div>
         <div *ngIf="submitted && payment.invalid">
           <small class="text-danger">Selecione um método de pagamento!</small>
         </div>

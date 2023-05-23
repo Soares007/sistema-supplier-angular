@@ -14,7 +14,7 @@ export class ClientComponent implements OnInit {
   clients: Client[] = [];
   isEditing: boolean = false;
   formGroupClient: FormGroup;
-  paymentOptions: string[] = ['Cartão de Crédito/Débito', 'Boleto', 'Dinheiro'];
+  paymentOptions: string[] = ['Cartão de Crédito/Débito', 'Boleto', 'Dinheiro', 'Pix'];
   submitted: boolean = false;
   constructor(private ClientService: ClientService,
     private formBuilder: FormBuilder
