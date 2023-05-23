@@ -26,14 +26,23 @@
         <label for="phone_number" class="form-label">Número de Telefone:</label>
         <input type="number" formControlName="phone_number" class="form-control" id="phone_number"
           placeholder="Seu numero de telefone">
+          <div *ngIf="submitted && phone.invalid">
+            <small class="text-danger">Número de Telefone inválido!</small>
+          </div>
       </div>
       <div class="mb-3">
         <label for="adress" class="form-label">Endereço:</label>
         <input type="text" formControlName="adress" class="form-control" id="adress" placeholder="Seu endereço">
+        <div *ngIf="submitted && adress.invalid">
+          <small class="text-danger">Endereço inválido!</small>
+        </div>
       </div>
       <div class="mb-3">
         <label for="cpf" class="form-label">CPF:</label>
         <input type="number" formControlName="cpf" class="form-control" id="cpf" placeholder="Seu CPF">
+        <div *ngIf="submitted && cpf.invalid">
+          <small class="text-danger">CPF inválido!</small>
+        </div>
       </div>
       <div class="mb-3">
         <label class="form-label">Forma de Pagamento:</label>
@@ -49,6 +58,9 @@
         <div class="form-check">
           <input type="radio" formControlName="payment" class="form-check-input" id="payment3" value="Dinheiro">
           <label class="form-check-label" for="payment3">Dinheiro</label>
+        </div>
+        <div *ngIf="submitted && payment.invalid">
+          <small class="text-danger">Selecione um método de pagamento!</small>
         </div>
         <span class="mb-3 d-flex justify-content-end align-items-start gap-2">
           <button class="btn btn-success" (click)="save()">Salvar</button>

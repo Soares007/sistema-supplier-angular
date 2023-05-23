@@ -96,4 +96,13 @@ export class ClientComponent implements OnInit {
   get phone(): any {
     return this.formGroupClient.get("phone_number")
   }
+  get adress(): any {
+    return this.formGroupClient.get("adress")
+  }
+  get cpf(): any {
+    return this.formGroupClient.get("cpf")
+  }
+  get payment(): any {
+    return this.formGroupClient.get("payment")
+  }
 }
