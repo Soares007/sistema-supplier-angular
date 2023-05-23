@@ -1,6 +1,6 @@
 import { SupplierService } from './../supplier.service';
 import { Supplier } from './../supplier';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { Component } from '@angular/core';
 
 @Component({
@@ -13,18 +13,21 @@ export class SupplierComponent {
   supplier: Supplier[] = [];
   isEditing: boolean = false;
   formGroupSupplier: FormGroup;
-
+  submitted: boolean = false;
+  categoryOptions: string[] = ['Eletrônicos', 'Roupas', 'Bebidas', 'Livros', 'Alimentos', 'Decoração', 'Esportes e Fitness', 'Beleza e Cuidados Pessoais', 'Brinquedos e Jogos', 'Móveis e Decoração de Interiores'];
   constructor(private SupplierService: SupplierService,
     private formBuilder: FormBuilder
 
   ) {
     this.formGroupSupplier = formBuilder.group({
       id: [''],
-      name: [''],
-      phone_number: [''],
-      cnpj: [''],
-      categoria: [''],
-      produto: ['']
+      name: ['', [Validators.required]],
+      phone_number: ['', [Validators.required]],
+      cnpj: ['', [Validators.required]],
+      categoria: ['', [Validators.required]],
+      produto: ['', [Validators.required]],
+      isAcceptedTerms: [false, [Validators.required, this.validateIsAcceptedTerms]],
+      isVerifiedSupplier: [false]
     });
   }
   ngOnInit(): void {
@@ -37,29 +40,39 @@ export class SupplierComponent {
     });
   }
 
-  save() {
-    if (this.isEditing) {
-      this.SupplierService.update(this.formGroupSupplier.value).subscribe(
-        {
-          next: () => {
-            this.loadSuppliers();
-            this.formGroupSupplier.reset();
-            this.isEditing = false;
-          }
-
-        }
-      );
+  validateIsAcceptedTerms(control: AbstractControl) {
+    if (!control.value) {
+      return { isAcceptedTermsRequired: true };
     }
-    else {
-      this.SupplierService.save(this.formGroupSupplier.value).subscribe(
-        {
-          next: data => {
-            this.supplier.push(data)
-            this.formGroupSupplier.reset();
+    return null;
+  }
 
+  save() {
+    this.submitted = true;
+    if (this.formGroupSupplier.valid) {
+      if (this.isEditing) {
+        this.SupplierService.update(this.formGroupSupplier.value).subscribe(
+          {
+            next: () => {
+              this.loadSuppliers();
+              this.formGroupSupplier.reset();
+              this.isEditing = false;
+              this.submitted = false;
+            }
           }
-        }
-      );
+        );
+      }
+      else {
+        this.SupplierService.save(this.formGroupSupplier.value).subscribe(
+          {
+            next: data => {
+              this.supplier.push(data)
+              this.formGroupSupplier.reset();
+              this.submitted = false;
+            }
+          }
+        );
+      }
     }
   }
 
@@ -77,5 +90,25 @@ export class SupplierComponent {
   }
   limparDados() {
     this.formGroupSupplier.reset();
+    this.submitted = false;
+  }
+
+  get name(): any {
+    return this.formGroupSupplier.get("name");
+  }
+  get phone(): any {
+    return this.formGroupSupplier.get("phone_number");
+  }
+  get cnpj(): any {
+    return this.formGroupSupplier.get("cnpj");
+  }
+  get category(): any {
+    return this.formGroupSupplier.get("categoria");
+  }
+  get product(): any {
+    return this.formGroupSupplier.get("produto");
+  }
+  get accTerms(): any {
+    return this.formGroupSupplier.get("isAcceptedTerms")
   }
 }

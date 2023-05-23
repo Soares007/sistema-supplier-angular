@@ -2,53 +2,62 @@
   "clientes": [
     {
       "id": 1,
-      "name": "José Marcio ",
-      "email": "jose.marcio@gmail.com",
-      "phone_number": 11987045637,
-      "adress": "Rua do Aluminio...",
-      "cpf": 45678920398
+      "name": "Carlos Eduardo",
+      "email": "carlos.rosa5@fatec.sp.gov.br",
+      "phone_number": 11544653633,
+      "adress": "Rua abacate",
+      "cpf": 21314124434432430,
+      "payment": "Cartão de Crédito/Débito"
     },
     {
       "id": 2,
-      "name": "Carlos Eduardo",
-      "email": "carlos.eduardo@gmail.com",
-      "phone_number": 11967435098,
-      "adress": "Rua do Ledino...",
-      "cpf": 40975874652
+      "name": "José Marcio",
+      "email": "jose.marcio@gmail.com",
+      "phone_number": 545363545353,
+      "adress": "Rua Laranja",
+      "cpf": 535453563453543,
+      "payment": "Boleto"
     },
     {
       "id": 3,
-      "name": "Guilherme Rodrigues",
-      "email": "guilherme.rodrigues@gmail.com",
-      "phone_number": 11907564389,
-      "adress": "Rua Brasil...",
-      "cpf": 48920597863
+      "name": "Daniela Silva",
+      "email": "daniela.silva@gmail.com",
+      "phone_number": 34265353453453,
+      "adress": "Rua Manga",
+      "cpf": 43543635435353,
+      "payment": "Dinheiro"
     }
   ],
   "suppliers": [
     {
       "id": 1,
-      "name": "João",
-      "phone_number": 11985760593,
-      "cnpj": 498607689567,
-      "categoria": "Calçados",
-      "produto": "Chuteira Nike"
+      "name": "João Silva",
+      "phone_number": 1231241543,
+      "cnpj": 436335353534,
+      "categoria": "Alimentos",
+      "produto": "Marmitex de parmegiana",
+      "isAcceptedTerms": true,
+      "isVerifiedSupplier": true
     },
     {
       "id": 2,
-      "name": "Daniel",
-      "phone_number": 11978906543,
-      "cnpj": 498566768907,
-      "categoria": "Eletrodomésticos",
-      "produto": "Geladeira"
+      "name": "Maria Souza",
+      "phone_number": 213213213,
+      "cnpj": 124123122131,
+      "categoria": "Roupas",
+      "produto": "Vestido ",
+      "isAcceptedTerms": true,
+      "isVerifiedSupplier": null
     },
     {
       "id": 3,
-      "name": "Fabio",
-      "phone_number": 119987606543,
-      "cnpj": 496895678607,
-      "categoria": "Eletrônicos",
-      "produto": "Celular"
+      "name": "Stefany Soares",
+      "phone_number": 21454353453,
+      "cnpj": 324242342423,
+      "categoria": "Livros",
+      "produto": "Diário de um Banana",
+      "isAcceptedTerms": true,
+      "isVerifiedSupplier": true
     }
   ]
 }

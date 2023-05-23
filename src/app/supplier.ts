@@ -5,4 +5,6 @@ export interface Supplier {
   cnpj: number;
   categoria: string;
   produto: string;
+  isAcceptedTerms: boolean;
+  isVerifiedSupplier: boolean;
 }

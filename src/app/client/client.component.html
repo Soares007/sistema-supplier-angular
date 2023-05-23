@@ -9,26 +9,51 @@
       <div class="mb-3">
         <label for="name" class="form-label">Nome:</label>
         <input type="text" formControlName="name" class="form-control" id="name" placeholder="Seu nome">
+        <div *ngIf="submitted && name.invalid">
+          <small class="text-danger">Nome inválido!</small>
+        </div>
       </div>
+
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
         <input type="email" formControlName="email" class="form-control" id="email" placeholder="Seu email">
+        <div *ngIf="submitted && email.invalid">
+          <small class="text-danger">Email inválido!</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="phone_number" class="form-label">Número de Telefone:</label>
+        <input type="number" formControlName="phone_number" class="form-control" id="phone_number"
+          placeholder="Seu numero de telefone">
       </div>
       <div class="mb-3">
-        <label for="phone_number" class="form-label">Phone Number:</label>
-        <input type="number" formControlName="phone_number" class="form-control" id="phone_number" placeholder="Seu numero de telefone">
-      </div>
-      <div class="mb-3">
-        <label for="adress" class="form-label">Adress:</label>
+        <label for="adress" class="form-label">Endereço:</label>
         <input type="text" formControlName="adress" class="form-control" id="adress" placeholder="Seu endereço">
       </div>
       <div class="mb-3">
         <label for="cpf" class="form-label">CPF:</label>
         <input type="number" formControlName="cpf" class="form-control" id="cpf" placeholder="Seu CPF">
       </div>
-      <div class="mb-3 d-flex justify-content-end gap-2">
-        <button class="btn btn-success" (click)="save()">Salvar</button>
-        <button class="btn btn-danger" (click)="limparDados()">Limpar</button>
+      <div class="mb-3">
+        <label class="form-label">Forma de Pagamento:</label>
+        <div class="form-check">
+          <input type="radio" formControlName="payment" class="form-check-input" id="payment1"
+            value="Cartão de Crédito/Débito">
+          <label class="form-check-label" for="payment1">Cartão Crédito/Débito</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" formControlName="payment" class="form-check-input" id="payment2" value="Boleto">
+          <label class="form-check-label" for="payment2">Boleto</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" formControlName="payment" class="form-check-input" id="payment3" value="Dinheiro">
+          <label class="form-check-label" for="payment3">Dinheiro</label>
+        </div>
+        <span class="mb-3 d-flex justify-content-end align-items-start gap-2">
+          <button class="btn btn-success" (click)="save()">Salvar</button>
+          <button class="btn btn-danger" (click)="limparDados()">Limpar</button>
+        </span>
       </div>
     </form>
   </div>
@@ -39,9 +64,10 @@
       <th scope="col">ID</th>
       <th scope="col">Nome</th>
       <th scope="col">Email</th>
-      <th scope="col">Phone Number</th>
-      <th scope="col">Adress</th>
+      <th scope="col">Número de Telefone</th>
+      <th scope="col">Endereço</th>
       <th scope="col">CPF</th>
+      <th scope="col">Modo de Pagamento</th>
       <th scope="col">Opções</th>
     </tr>
   </thead>
@@ -53,6 +79,7 @@
       <td>{{client.phone_number}}</td>
       <td>{{client.adress}}</td>
       <td>{{client.cpf}}</td>
+      <td>{{client.payment}}</td>
       <td>
         <button class="btn btn-primary me-2" (click)="edit(client)">Editar</button>
         <button class="btn btn-danger" (click)="delete(client)">Excluir</button>

@@ -5,4 +5,5 @@ export interface Client {
   phone_number: number;
   adress: string;
   cpf: number;
+  payment: string;
 }
