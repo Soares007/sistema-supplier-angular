@@ -26,6 +26,15 @@
       "adress": "Rua Manga",
       "cpf": 43543635435353,
       "payment": "Dinheiro"
+    },
+    {
+      "id": 4,
+      "name": "Emerson Dias",
+      "email": "emerson.dias@gmail.com",
+      "phone_number": 3423432432,
+      "adress": "Rua do Aluminio...",
+      "cpf": 432542432432432,
+      "payment": "Dinheiro"
     }
   ],
   "suppliers": [
